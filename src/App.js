@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import { Form } from './Components/Form';
 import { List } from './Components/List';
+import { Filter } from './Components/Filter';
 
 class App extends Component {
   constructor(props) {
@@ -54,6 +55,11 @@ class App extends Component {
          <List 
           handleUpdate={this.handleUpdate}
           handleEdit={this.handleEdit}
+          data={this.state.data}
+         />
+
+         <Filter
+          handleUpdate={this.handleUpdate}
           data={this.state.data}
          />
       </div>
