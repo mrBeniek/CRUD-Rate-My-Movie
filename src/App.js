@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Form } from './Components/Form';
-
+import { List } from './Components/List';
 
 class App extends Component {
   constructor(props) {
@@ -9,22 +9,32 @@ class App extends Component {
     this.state = {
       data: [],
       index: '',
+      formReset: 0,
     }
   }
 
-  handleAdd = (data) => {
+  handleUpdate = (data) => {
     this.setState({
       data: data
     })
   }
+ 
 
   render() {
     return (
       <div id="main">
         <div id="title" className="flex-middle">Rate My Movie</div>
+        
         <Form 
-        handleAdd={this.handleAdd}
-        data={this.state.data}
+          handleUpdate={this.handleUpdate}
+          data={this.state.data}
+          formReset={this.state.formReset}
+         />
+
+         <List 
+          handleUpdate={this.handleUpdate}
+          handleReset={this.handleReset}
+          data={this.state.data}
          />
       </div>
     )

@@ -18,20 +18,22 @@ export class Form extends Component {
     
           data.push(storage);
 
-          this.props.handleAdd(data);
+          this.props.handleUpdate(data);
 
           this.refs.formCont.reset()
     }
 
     
     render() {
+
+
         return (
             <div>
                 <form id="form-cont" ref="formCont">
                 <input className="input-field" type="text" ref="movie" placeholder="Insert Movie" />
                 <input className="input-field" type="text" ref="rating" placeholder="Insert Rating" />
                 <button className="button-add" onClick={this.handleAdd}>Add</button>
-          </form> 
+                </form> 
             </div>
         )
     }
