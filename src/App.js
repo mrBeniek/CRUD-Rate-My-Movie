@@ -1,5 +1,6 @@
 import './App.css';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Form } from './Components/Form';
 
 
 class App extends Component {
@@ -11,11 +12,20 @@ class App extends Component {
     }
   }
 
+  handleAdd = (data) => {
+    this.setState({
+      data: data
+    })
+  }
+
   render() {
     return (
       <div id="main">
         <div id="title" className="flex-middle">Rate My Movie</div>
-        
+        <Form 
+        handleAdd={this.handleAdd}
+        data={this.state.data}
+         />
       </div>
     )
   }
