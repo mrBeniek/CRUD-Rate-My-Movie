@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export class Form extends Component {
 
+
     // adding new items to the List
 
     handleAdd = (event) => {
@@ -11,12 +12,29 @@ export class Form extends Component {
         let movie = this.refs.movie.value;
         let rating = this.refs.rating.value;
 
-        let storage = {
-            movie,
-            rating
-          }
-    
-          data.push(storage);
+        // first we check if we're in edit mode (if not first)
+
+        if (this.props.checkEdit === false) {
+
+            let storage = {
+                movie,
+                rating
+              }
+        
+              data.push(storage);
+        }
+
+        // if we're in edit mode then:
+
+        else {
+            let index = this.props.index;
+            data[index].movie = movie;
+            data[index].rating = rating;
+
+            this.props.editDisable()
+        }
+
+        
 
           this.props.handleUpdate(data);
 
@@ -26,6 +44,12 @@ export class Form extends Component {
     
     render() {
 
+        // check if in "edit mode", if yes - change refs values
+
+        if (this.props.checkEdit === true) {
+            this.refs.movie.value = this.props.refUpdate[0];
+            this.refs.rating.value = this.props.refUpdate[1];
+        }
 
         return (
             <div>

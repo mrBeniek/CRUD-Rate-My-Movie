@@ -6,16 +6,33 @@ import { List } from './Components/List';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       data: [],
       index: '',
-      formReset: 0,
+      checkEdit: false,
+      refUpdate: []
+      
     }
   }
 
   handleUpdate = (data) => {
     this.setState({
       data: data
+    })
+  }
+
+  handleEdit = (index, refUpdate) => {
+    this.setState({
+      checkEdit: true,
+      index: index,
+      refUpdate: refUpdate
+    })
+  }
+
+  editDisable = () => {
+    this.setState({
+      checkEdit: false
     })
   }
  
@@ -27,13 +44,16 @@ class App extends Component {
         
         <Form 
           handleUpdate={this.handleUpdate}
+          editDisable={this.editDisable}
           data={this.state.data}
-          formReset={this.state.formReset}
+          index={this.state.index}
+          checkEdit={this.state.checkEdit}
+          refUpdate={this.state.refUpdate}
          />
 
          <List 
           handleUpdate={this.handleUpdate}
-          handleReset={this.handleReset}
+          handleEdit={this.handleEdit}
           data={this.state.data}
          />
       </div>

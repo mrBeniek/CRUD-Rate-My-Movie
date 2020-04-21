@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 export class List extends Component {
 
+    // deletes items from the list
+
     handleDelete = (index) => {
         let data = this.props.data;
     
@@ -11,7 +13,18 @@ export class List extends Component {
     
       }
 
+    // enters "edit mode"
+
+    handleEdit = (index) => {
+        let data = this.props.data[index];
+        let refUpdate = [data.movie, data.rating]
+
+        this.props.handleEdit(index, refUpdate)
+    }
+
     render() {
+
+        // fills the list with new items
 
         const DATA = this.props.data.map ( (val, index) => 
             <div key={index} className="list">
@@ -23,6 +36,7 @@ export class List extends Component {
 
         return (
             <div id="list-cont">
+            
                 {DATA}
                 
             </div>
