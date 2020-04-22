@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'antd';
 
 export class Form extends Component {
 
@@ -33,8 +34,6 @@ export class Form extends Component {
 
         // if we're in edit mode then:
 
-       
-
         else {
 
             // we check if we're in "filtered mode"
@@ -51,8 +50,7 @@ export class Form extends Component {
                 data[index].movie = movie;
                 data[index].rating = rating;
             }
-            
-
+        
             this.props.editDisable()
         }
 
@@ -61,7 +59,6 @@ export class Form extends Component {
           this.refs.formCont.reset()
     }
 
-    
     render() {
 
         let btnChange = "Add";
@@ -77,9 +74,9 @@ export class Form extends Component {
         return (
             <div>
                 <form id="form-cont" ref="formCont">
-                <input className="input-field" type="text" ref="movie" placeholder="Insert Movie" />
-                <input className="input-field" type="number" ref="rating" required min="1" max="10" placeholder="Rating" />
-                <button className="button-add" onClick={this.handleAdd} type="submit">{btnChange}</button>
+                <input className="input-field-text" type="text" ref="movie" placeholder="Insert Movie" />
+                <input className="input-field-number" type="number" ref="rating" required min="1" max="10" placeholder="Rating" />
+                <Button className="button-add" onClick={this.handleAdd} type="dashed">{btnChange}</Button>
                 </form> 
             </div>
         )

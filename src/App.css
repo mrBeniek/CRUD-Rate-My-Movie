@@ -1,27 +1,149 @@
+@import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+body {
+  background-image: url(./Assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
+  
+}
+
 .flex-middle {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .top-margin {
   margin-top: 30px;
 }
 
+.right-margin {
+  margin-right: 85px;
+}
+
+#wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
 #main {
-display: flex;
-flex-direction: column;
-height: 100vh;
-align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  width: 100%;
 }
 
 #title {
-  background: yellow;
   align-items: flex-start;
-  margin-top: 10%;
-  font-size: 3em;
+  color: white;
+  font-family: 'Calligraffitti', cursive;
+  font-size: 5em;
+  margin-top: 5%;
 }
 
 #form-cont {
+  margin-bottom: 30px;
   margin-top: 30px;
+}
+
+.button-add {
+  font-size: 1.3em;
+  height: 40px;
+  width: 100px;
+}
+
+.input-field-text {
+  font-size: 1.3em;
+  height: 40px;
+  width: 200px;
+}
+
+.input-field-number {
+  font-size: 1.3em;
+  height: 40px;
+  width: 100px;
+}
+
+#list-main {
+  height: 550px;
+  width: 100%;
+}
+
+#list-title {
+  color: white;
+  display: flex;
+  font-family: 'Carter One', cursive;
+  font-size: 3em;
+  justify-content: space-between;
+  padding: 0px 20px;
+  width: 70%;
+}
+
+#list-cont {
+  background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  border: solid white 3px;
+  border-radius: 2a0px;
+  display: flex;
+  justify-content: space-around;
+  height: 90%;
+  overflow: auto;
+  width: 100%;
+}
+
+#list-data {
+  font-size: 2em;
+  width: 100%;
+}
+
+#list-buttons {
+  flex-direction: column;
+  font-size: 1.5em;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.button-delete {
+  height: 50px;
+}
+
+.button-edit {
+  color: yellowgreen;
+  height: 50px;
+}
+
+.list-data-single {
+  color: white;
+  font-family: 'Carter One', cursive;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  height: 60px;
+}
+
+.list-buttons-single {
+  font-family: 'Carter One', cursive;
+  padding: 12.5px;
+  height: 60px;
+  width: 100%;
+}
+
+#filter-input-field {
+  width: 300px;
+  height: 40px;
+}
+
+.button-filter {
+  height: 40px;
+}
+
+.button-showall {
+  margin-left: 50px;
+  height: 40px;
+  width: 200px;
 }

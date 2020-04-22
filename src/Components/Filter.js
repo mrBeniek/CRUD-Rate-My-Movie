@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'antd';
 
 export class Filter extends Component {
 
@@ -25,19 +26,23 @@ export class Filter extends Component {
 
     handleShow = (event) => {
         event.preventDefault();
-        
+
         this.props.resetFilter()
     }
 
     render() {
+
+        const SHOWALL = <Button className="button-showall" onClick={this.handleShow} type="default">Show All</Button>
+        const SHOWALL_OFF = <Button className="button-showall" type="primary" disabled>Show All</Button>
         return (
             <div>
                 <form id="form-filter" className="top-margin" ref="formFilter">
-                    <input className="input-field" type="text" ref="filter" placeholder="Search Movie" />
-                    <button className="button-filter" onClick={this.handleFilter}>Search</button>
-                    <button className="button-showall" onClick={this.handleShow}>Show All</button>
+                    <input id="filter-input-field" type="text" ref="filter" placeholder="Search Movie" />
+                    <Button className="button-filter" onClick={this.handleFilter} type="primary">Search</Button>
+                    {this.props.filteredData !== null ? SHOWALL : SHOWALL_OFF}
                 </form>
             </div>
         )
+        
     }
 }

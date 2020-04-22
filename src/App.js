@@ -15,7 +15,6 @@ class App extends Component {
       filteredIndex: '',
       checkEdit: false,
       refUpdate: []
-      
     }
   }
 
@@ -56,36 +55,40 @@ class App extends Component {
 
   render() {
     return (
-      <div id="main">
-        <div id="title" className="flex-middle">Rate My Movie</div>
+      <div id="wrapper">
+        <div id="main">
+          <div id="title" className="flex-middle">Rate My Movie</div>
         
-        <Form 
-          handleUpdate={this.handleUpdate}
-          editDisable={this.editDisable}
-          resetFilter={this.resetFilter}
-          data={this.state.data}
-          filteredData={this.state.filteredData}
-          filteredIndex={this.state.filteredIndex}
-          index={this.state.index}
-          checkEdit={this.state.checkEdit}
-          refUpdate={this.state.refUpdate}
-         />
+          <Form 
+           handleUpdate={this.handleUpdate}
+           editDisable={this.editDisable}
+           resetFilter={this.resetFilter}
+           data={this.state.data}
+           filteredData={this.state.filteredData}
+           filteredIndex={this.state.filteredIndex}
+           index={this.state.index}
+           checkEdit={this.state.checkEdit}
+           refUpdate={this.state.refUpdate}
+          />
 
-         <List 
-          handleUpdate={this.handleUpdate}
-          handleEdit={this.handleEdit}
-          resetFilter={this.resetFilter}
-          data={this.state.data}
-          filteredData={this.state.filteredData}
-          filteredIndex={this.state.filteredIndex}
-         />
+          <List 
+           handleUpdate={this.handleUpdate}
+           handleEdit={this.handleEdit}
+           resetFilter={this.resetFilter}
+           data={this.state.data}
+           filteredData={this.state.filteredData}
+           filteredIndex={this.state.filteredIndex}
+          />
 
-         <Filter
-          handleUpdate={this.handleUpdate}
-          handleFilter={this.handleFilter}
-          resetFilter={this.resetFilter}
-          data={this.state.data}
-         />
+          <Filter
+           handleUpdate={this.handleUpdate}
+           handleFilter={this.handleFilter}
+           resetFilter={this.resetFilter}
+           data={this.state.data}
+           filteredData={this.state.filteredData}
+          />
+          </div>
+        
       </div>
     )
   }
