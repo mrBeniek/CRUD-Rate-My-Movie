@@ -23,12 +23,19 @@ export class Filter extends Component {
         this.props.handleFilter(newData, filteredIndex)
     }
 
+    handleShow = (event) => {
+        event.preventDefault();
+        
+        this.props.resetFilter()
+    }
+
     render() {
         return (
             <div>
                 <form id="form-filter" className="top-margin" ref="formFilter">
                     <input className="input-field" type="text" ref="filter" placeholder="Search Movie" />
                     <button className="button-filter" onClick={this.handleFilter}>Search</button>
+                    <button className="button-showall" onClick={this.handleShow}>Show All</button>
                 </form>
             </div>
         )

@@ -74,6 +74,7 @@ class App extends Component {
          <List 
           handleUpdate={this.handleUpdate}
           handleEdit={this.handleEdit}
+          resetFilter={this.resetFilter}
           data={this.state.data}
           filteredData={this.state.filteredData}
           filteredIndex={this.state.filteredIndex}
@@ -82,6 +83,7 @@ class App extends Component {
          <Filter
           handleUpdate={this.handleUpdate}
           handleFilter={this.handleFilter}
+          resetFilter={this.resetFilter}
           data={this.state.data}
          />
       </div>

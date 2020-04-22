@@ -64,11 +64,14 @@ export class Form extends Component {
     
     render() {
 
+        let btnChange = "Add";
+
         // check if in "edit mode", if yes - change refs values
 
         if (this.props.checkEdit === true) {
             this.refs.movie.value = this.props.refUpdate[0];
             this.refs.rating.value = this.props.refUpdate[1];
+            btnChange = "Edit";
         }
 
         return (
@@ -76,7 +79,7 @@ export class Form extends Component {
                 <form id="form-cont" ref="formCont">
                 <input className="input-field" type="text" ref="movie" placeholder="Insert Movie" />
                 <input className="input-field" type="number" ref="rating" required min="1" max="10" placeholder="Rating" />
-                <button className="button-add" onClick={this.handleAdd} type="submit">Add</button>
+                <button className="button-add" onClick={this.handleAdd} type="submit">{btnChange}</button>
                 </form> 
             </div>
         )

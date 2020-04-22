@@ -6,8 +6,16 @@ export class List extends Component {
 
     handleDelete = (index) => {
         let data = this.props.data;
+        // first we check if we're in "filtered mode"
+        if (this.props.filteredData !== null) {
+            let filteredIndex = this.props.filteredIndex;
+            data.splice( filteredIndex, 1 );
+            this.props.resetFilter()
+            
+        } else {
     
-        data.splice( index, 1 );
+            data.splice( index, 1 );
+        }
     
         this.props.handleUpdate(data)
     
