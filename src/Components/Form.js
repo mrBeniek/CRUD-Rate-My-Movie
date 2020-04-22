@@ -8,13 +8,20 @@ export class Form extends Component {
     handleAdd = (event) => {
         event.preventDefault();
 
+
         let data = this.props.data;
+        let filteredData = this.props.filteredData;
+        let filteredIndex = this.props.filteredIndex;
         let movie = this.refs.movie.value;
         let rating = this.refs.rating.value;
 
-        // first we check if we're in edit mode (if not first)
+        // we check if we're in edit mode (if not first)
 
         if (this.props.checkEdit === false) {
+
+            // we reset filter just in case
+
+            this.props.resetFilter()
 
             let storage = {
                 movie,
@@ -26,15 +33,28 @@ export class Form extends Component {
 
         // if we're in edit mode then:
 
+       
+
         else {
-            let index = this.props.index;
-            data[index].movie = movie;
-            data[index].rating = rating;
+
+            // we check if we're in "filtered mode"
+
+            if (filteredData !== null) {
+                filteredData.movie = movie;
+                filteredData.rating = rating;
+                data[filteredIndex].movie = movie;
+                data[filteredIndex].rating = rating;
+
+
+            } else {
+                let index = this.props.index;
+                data[index].movie = movie;
+                data[index].rating = rating;
+            }
+            
 
             this.props.editDisable()
         }
-
-        
 
           this.props.handleUpdate(data);
 
@@ -55,8 +75,8 @@ export class Form extends Component {
             <div>
                 <form id="form-cont" ref="formCont">
                 <input className="input-field" type="text" ref="movie" placeholder="Insert Movie" />
-                <input className="input-field" type="text" ref="rating" placeholder="Insert Rating" />
-                <button className="button-add" onClick={this.handleAdd}>Add</button>
+                <input className="input-field" type="number" ref="rating" required min="1" max="10" placeholder="Rating" />
+                <button className="button-add" onClick={this.handleAdd} type="submit">Add</button>
                 </form> 
             </div>
         )

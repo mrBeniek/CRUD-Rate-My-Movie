@@ -10,7 +10,9 @@ class App extends Component {
 
     this.state = {
       data: [],
+      filteredData: null,
       index: '',
+      filteredIndex: '',
       checkEdit: false,
       refUpdate: []
       
@@ -36,6 +38,20 @@ class App extends Component {
       checkEdit: false
     })
   }
+
+  handleFilter = (newData, filteredIndex) => {
+    this.setState({
+      filteredData: newData,
+      filteredIndex: filteredIndex
+    })
+  }
+
+  resetFilter = () => {
+    this.setState({
+      filteredData: null, 
+      filteredIndex: ''
+    })
+  }
  
 
   render() {
@@ -46,7 +62,10 @@ class App extends Component {
         <Form 
           handleUpdate={this.handleUpdate}
           editDisable={this.editDisable}
+          resetFilter={this.resetFilter}
           data={this.state.data}
+          filteredData={this.state.filteredData}
+          filteredIndex={this.state.filteredIndex}
           index={this.state.index}
           checkEdit={this.state.checkEdit}
           refUpdate={this.state.refUpdate}
@@ -56,10 +75,13 @@ class App extends Component {
           handleUpdate={this.handleUpdate}
           handleEdit={this.handleEdit}
           data={this.state.data}
+          filteredData={this.state.filteredData}
+          filteredIndex={this.state.filteredIndex}
          />
 
          <Filter
           handleUpdate={this.handleUpdate}
+          handleFilter={this.handleFilter}
           data={this.state.data}
          />
       </div>

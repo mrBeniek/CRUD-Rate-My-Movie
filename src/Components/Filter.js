@@ -9,12 +9,18 @@ export class Filter extends Component {
 
         let data = this.props.data;
         let filter = this.refs.filter.value;
+        let filteredIndex = '';
 
-        let newData = data.filter( val => 
-            val.movie === filter
+        let newData = data.filter( (val, index) => {
+            if (val.movie === filter) {
+                filteredIndex = index;
+            }
+            return val.movie === filter
+        }
+            
         )
 
-        this.props.handleUpdate(newData)
+        this.props.handleFilter(newData, filteredIndex)
     }
 
     render() {
